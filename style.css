@@ -78,6 +78,29 @@ body {
     transform: translateY(-2px);
 }
 
+.caixa-navegacao {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.btn-voltar {
+    background-color: transparent;
+    color: var(--cor-destaque);
+    border: none;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transicao);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-voltar:hover {
+    color: #524bc7;
+    background-color: rgba(108, 99, 255, 0.05);
+}
+
 .caixa-resultado {
     background-color: rgba(108, 99, 255, 0.08);
     border-radius: var(--borda-arredondada);
@@ -90,6 +113,24 @@ body {
 .texto-resultado {
     color: var(--cor-texto-claro);
     font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn-recomecar {
+    background-color: var(--cor-destaque);
+    color: white;
+    border: none;
+    border-radius: var(--borda-arredondada);
+    padding: 12px 24px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transicao);
+    margin-top: 1rem;
+}
+
+.btn-recomecar:hover {
+    background-color: #524bc7;
+    transform: translateY(-2px);
 }
 
 @keyframes fadeIn {
