@@ -126,6 +126,7 @@ body {
     cursor: pointer;
     transition: var(--transicao);
     margin-top: 1rem;
+    width: 100%;
 }
 
 .btn-recomecar:hover {
