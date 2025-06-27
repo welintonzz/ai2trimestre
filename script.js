@@ -1,94 +1,93 @@
-// Perguntas e afirmações
 const questionario = {
-    titulo: "Máquinas Inteligentes x Trabalho Humano",
+    titulo: "Robótica e Mercado de Trabalho",
     perguntas: [
         {
-            pergunta: "Você acredita que as máquinas inteligentes vão substituir a maioria dos empregos humanos no futuro?",
+            pergunta: "Como podemos evitar que a automação cause desemprego em massa?",
             alternativas: [
-                "Sim, a automação vai substituir a maioria dos trabalhos humanos",
-                "Não, as máquinas vão criar novos tipos de emprego"
+                "Investir em cursos de requalificação para trabalhadores",
+                "Reduzir a jornada de trabalho sem reduzir salários"
             ],
             afirmacoes: [
-                "Você acredita que a automação substituirá a maioria dos trabalhos humanos.",
-                "Você não acredita que a automação substituirá a maioria dos trabalhos, mas sim que criará novos empregos."
+                "Você defende que a solução para evitar o desemprego em massa está no investimento em cursos de requalificação profissional, preparando os trabalhadores para novas funções que exigem habilidades diferentes, especialmente nas áreas de tecnologia e serviços humanos.",
+                "Você acredita que a redução da jornada de trabalho sem corte de salários é a melhor forma de distribuir as oportunidades de emprego, permitindo que mais pessoas sejam contratadas para realizar o mesmo volume de trabalho."
             ]
         },
         {
-            pergunta: "Qual setor você acha que será mais impactado pela substituição de humanos por máquinas?",
+            pergunta: "O que as empresas devem fazer para manter o equilíbrio entre eficiência e responsabilidade social?",
             alternativas: [
-                "Setores de produção e manufatura",
-                "Setores de serviços e atendimento"
+                "Criar planos de transição para os funcionários afetados pela automação",
+                "Reservar parte dos lucros gerados pela automação para programas sociais"
             ],
             afirmacoes: [
-                "Você identificou que os setores de produção e manufatura serão os mais impactados pela automação.",
-                "Você acredita que os setores de serviços e atendimento serão os mais afetados pela substituição por máquinas."
+                "Para você, as empresas devem demonstrar responsabilidade social criando planos de transição bem estruturados para os funcionários que serão afetados pela automação, mostrando compromisso com seus colaboradores.",
+                "Na sua visão, o caminho é as empresas destinarem parte dos lucros obtidos com a automação para programas sociais, compartilhando os ganhos de produtividade com a sociedade como um todo."
             ]
         },
         {
-            pergunta: "Como você avalia o impacto da IA na qualidade dos empregos restantes?",
+            pergunta: "Como os governos podem lidar com a desigualdade gerada pela automação?",
             alternativas: [
-                "Os empregos restantes se tornarão mais qualificados e bem remunerados",
-                "A qualidade dos empregos vai piorar com a pressão das máquinas"
+                "Implementar a renda básica universal (RBU)",
+                "Criar impostos específicos sobre o uso de robôs em empresas"
             ],
             afirmacoes: [
-                "Você avalia que os empregos remanescentes se tornarão mais qualificados e melhor remunerados.",
-                "Você tem a percepção de que a qualidade dos empregos pode piorar com a competição das máquinas."
+                "Você considera que a implementação da renda básica universal é a medida mais eficaz para garantir uma rede de proteção social e evitar a pobreza extrema em um cenário de crescente automação.",
+                "Na sua opinião, a criação de impostos específicos sobre o uso de robôs nas empresas seria a forma mais adequada de financiar programas sociais e educacionais, equilibrando os efeitos da automação."
             ]
         },
         {
-            pergunta: "Qual deve ser a resposta da sociedade à substituição de trabalhadores por máquinas?",
+            pergunta: "Qual é a melhor forma de preparar as novas gerações para um futuro com robôs?",
             alternativas: [
-                "Investir em educação e requalificação profissional",
-                "Criar políticas que limitem a automação em certos setores"
+                "Reformar o currículo escolar com foco em habilidades digitais e pensamento crítico",
+                "Estimular o ensino de profissões criativas e sociais"
             ],
             afirmacoes: [
-                "Você defende que a resposta adequada é investir em educação e requalificação profissional.",
-                "Você acredita que a solução está em políticas que limitem a automação em certos setores."
+                "Você acredita que a reforma do currículo escolar com ênfase em habilidades digitais e pensamento crítico é essencial para preparar os jovens para as profissões do futuro que não serão facilmente automatizadas.",
+                "Para você, o foco deve estar no estímulo ao ensino de profissões criativas e sociais, como artes, psicologia e pedagogia, áreas onde a presença humana continuará sendo insubstituível."
             ]
         },
         {
-            pergunta: "Você se sente preparado para um mercado de trabalho dominado por máquinas inteligentes?",
+            pergunta: "O que a sociedade pode fazer para lidar com as mudanças provocadas pelos robôs no mercado de trabalho?",
             alternativas: [
-                "Sim, estou me preparando para trabalhar junto com as máquinas",
-                "Não, me sinto ameaçado pela ascensão das máquinas"
+                "Promover debates e políticas públicas sobre o futuro do trabalho",
+                "Incentivar o empreendedorismo digital e sustentável"
             ],
             afirmacoes: [
-                "Você se sente preparado e está se adaptando para trabalhar em colaboração com as máquinas inteligentes.",
-                "Você expressa sentir-se ameaçado pela ascensão das máquinas no mercado de trabalho."
+                "Na sua visão, a sociedade deve priorizar a promoção de debates amplos e políticas públicas bem formuladas sobre o futuro do trabalho, criando soluções coletivas e participativas.",
+                "Você defende que o incentivo ao empreendedorismo digital e sustentável é a chave para criar novas oportunidades de negócios adaptadas à realidade tecnológica atual."
             ]
         }
-    ]
+    ],
+    textoFinal: "Com base nas suas respostas, sua visão sobre o impacto da automação no mercado de trabalho pode ser resumida da seguinte forma:"
 };
 
-// Variáveis globais
 let respostas = [];
 let perguntaAtual = 0;
 
-// Elementos DOM
-const caixaPerguntas = document.querySelector('.caixa-perguntas');
-const caixaAlternativas = document.querySelector('.caixa-alternativas');
-const caixaNavegacao = document.querySelector('.caixa-navegacao');
-const btnVoltar = document.querySelector('.btn-voltar');
-const caixaResultado = document.querySelector('.caixa-resultado');
-const tituloResultado = document.querySelector('.titulo-resultado');
-const textoResultado = document.querySelector('.texto-resultado');
-const btnRecomecar = document.querySelector('.btn-recomecar');
+const elementos = {
+    pergunta: document.querySelector('.caixa-perguntas'),
+    alternativas: document.querySelector('.caixa-alternativas'),
+    navegacao: document.querySelector('.caixa-navegacao'),
+    btnVoltar: document.querySelector('.btn-voltar'),
+    resultado: document.querySelector('.caixa-resultado'),
+    tituloResultado: document.querySelector('.titulo-resultado'),
+    textoResultado: document.querySelector('.texto-resultado'),
+    btnRecomecar: document.querySelector('.btn-recomecar')
+};
 
-// Funções
 function mostrarPergunta(index) {
     document.title = `Pergunta ${index + 1} - ${questionario.titulo}`;
-    caixaPerguntas.textContent = questionario.perguntas[index].pergunta;
-    caixaAlternativas.innerHTML = '';
+    elementos.pergunta.textContent = questionario.perguntas[index].pergunta;
+    elementos.alternativas.innerHTML = '';
     
     questionario.perguntas[index].alternativas.forEach((alternativa, i) => {
         const botao = document.createElement('button');
         botao.textContent = alternativa;
         botao.addEventListener('click', () => selecionarResposta(i));
-        caixaAlternativas.appendChild(botao);
+        elementos.alternativas.appendChild(botao);
     });
     
-    caixaNavegacao.style.display = index > 0 ? 'block' : 'none';
-    caixaResultado.style.display = 'none';
+    elementos.navegacao.style.display = index > 0 ? 'block' : 'none';
+    elementos.resultado.style.display = 'none';
 }
 
 function selecionarResposta(respostaIndex) {
@@ -104,21 +103,20 @@ function selecionarResposta(respostaIndex) {
 
 function mostrarResultado() {
     document.title = `Resultado - ${questionario.titulo}`;
-    caixaPerguntas.style.display = 'none';
-    caixaAlternativas.style.display = 'none';
-    caixaNavegacao.style.display = 'none';
+    elementos.pergunta.style.display = 'none';
+    elementos.alternativas.style.display = 'none';
+    elementos.navegacao.style.display = 'none';
     
-    // Gerar texto personalizado com as respostas
-    let resultadoHTML = "<p>Com base nas suas respostas, podemos afirmar que:</p><ul>";
+    let resultadoHTML = `<p><strong>${questionario.textoFinal}</strong></p>`;
     
     questionario.perguntas.forEach((pergunta, index) => {
-        resultadoHTML += `<li>${pergunta.afirmacoes[respostas[index]]}</li>`;
+        resultadoHTML += `<p>${pergunta.afirmacoes[respostas[index]]}</p>`;
     });
     
-    resultadoHTML += `</ul><p class="conclusao">Essa é a sua visão sobre o impacto das máquinas inteligentes no mercado de trabalho.</p>`;
+    resultadoHTML += `<p class="conclusao">Esta análise reflete suas opiniões sobre como a sociedade deve se adaptar aos desafios trazidos pela automação no mercado de trabalho.</p>`;
     
-    textoResultado.innerHTML = resultadoHTML;
-    caixaResultado.style.display = 'block';
+    elementos.textoResultado.innerHTML = resultadoHTML;
+    elementos.resultado.style.display = 'block';
 }
 
 function voltarPergunta() {
@@ -128,17 +126,15 @@ function voltarPergunta() {
     }
 }
 
-function recomecarEnquete() {
+function recomecarQuestionario() {
     perguntaAtual = 0;
     respostas = [];
-    caixaPerguntas.style.display = 'block';
-    caixaAlternativas.style.display = 'block';
+    elementos.pergunta.style.display = 'block';
+    elementos.alternativas.style.display = 'block';
     mostrarPergunta(0);
 }
 
-// Event Listeners
-btnVoltar.addEventListener('click', voltarPergunta);
-btnRecomecar.addEventListener('click', recomecarEnquete);
+elementos.btnVoltar.addEventListener('click', voltarPergunta);
+elementos.btnRecomecar.addEventListener('click', recomecarQuestionario);
 
-// Iniciar questionário
 mostrarPergunta(0);
