@@ -8,8 +8,8 @@ const questionario = {
                 "Reduzir a jornada de trabalho sem reduzir salários"
             ],
             afirmacoes: [
-                "• Investir em cursos de requalificação prepara as pessoas para novas funções que exigem habilidades diferentes, especialmente nas áreas de tecnologia e serviços humanos.",
-                "• Reduzir a jornada de trabalho sem cortar salários permite que mais pessoas sejam empregadas, distribuindo melhor as oportunidades de trabalho."
+                "Você acredita que investir em cursos de requalificação é fundamental para preparar os trabalhadores para novas funções que exigem habilidades diferentes, especialmente nas áreas de tecnologia e serviços humanos.",
+                "Na sua visão, reduzir a jornada de trabalho sem cortar salários permitiria que mais pessoas fossem empregadas, distribuindo melhor as oportunidades de trabalho."
             ]
         },
         {
@@ -19,8 +19,8 @@ const questionario = {
                 "Reservar parte dos lucros gerados pela automação para programas sociais"
             ],
             afirmacoes: [
-                "• Criar planos de transição mostra compromisso com os trabalhadores e reduz o impacto negativo da substituição por robôs.",
-                "• Reservar parte dos lucros para programas sociais faz a empresa contribuir com a sociedade e fortalece sua imagem pública."
+                "Você defende que as empresas devem criar planos de transição para demonstrar compromisso com os trabalhadores e reduzir o impacto negativo da substituição por robôs.",
+                "Para você, o caminho ideal é reservar parte dos lucros para programas sociais, fazendo a empresa contribuir com a sociedade e fortalecer sua imagem pública."
             ]
         },
         {
@@ -30,8 +30,8 @@ const questionario = {
                 "Criar impostos específicos sobre o uso de robôs em empresas"
             ],
             afirmacoes: [
-                "• Implementar a RBU garante uma renda mínima para todos, mesmo que não estejam empregados, evitando pobreza extrema.",
-                "• Criar impostos sobre robôs pode financiar programas sociais e educacionais, equilibrando os efeitos da automação."
+                "Você considera que implementar a renda básica universal garantiria uma rede de segurança mínima para todos, evitando a pobreza extrema em um cenário de crescente automação.",
+                "Na sua opinião, criar impostos específicos sobre robôs seria a forma mais eficaz de financiar programas sociais e educacionais, equilibrando os efeitos da automação."
             ]
         },
         {
@@ -41,8 +41,8 @@ const questionario = {
                 "Estimular o ensino de profissões criativas e sociais"
             ],
             afirmacoes: [
-                "• Reformar o currículo escolar com foco em habilidades digitais prepara os jovens para funções não substituíveis por máquinas.",
-                "• Estimular profissões criativas e sociais é eficaz, pois áreas como artes e pedagogia sempre precisarão de humanos."
+                "Você acredita que reformar o currículo escolar com ênfase em habilidades digitais é essencial para preparar os jovens para as profissões do futuro que não serão facilmente automatizadas.",
+                "Para você, estimular profissões criativas e sociais é crucial, pois áreas como artes e pedagogia sempre precisarão da presença humana."
             ]
         },
         {
@@ -52,55 +52,15 @@ const questionario = {
                 "Incentivar o empreendedorismo digital e sustentável"
             ],
             afirmacoes: [
-                "• Promover debates ajuda a construir soluções mais justas e participativas sobre o futuro do trabalho.",
-                "• Incentivar o empreendedorismo digital estimula novos negócios adaptados às necessidades do mundo moderno."
+                "Na sua visão, promover debates amplos é fundamental para construir soluções coletivas e políticas públicas eficazes sobre o futuro do trabalho.",
+                "Você defende que incentivar o empreendedorismo digital é a chave para criar novas oportunidades de negócios adaptadas à realidade tecnológica."
             ]
         }
     ],
     textoFinal: "Sua visão sobre automação no mercado de trabalho:"
 };
 
-// Variáveis globais
-let respostas = [];
-let perguntaAtual = 0;
-
-// Elementos DOM
-const caixaPerguntas = document.querySelector('.caixa-perguntas');
-const caixaAlternativas = document.querySelector('.caixa-alternativas');
-const caixaNavegacao = document.querySelector('.caixa-navegacao');
-const btnVoltar = document.querySelector('.btn-voltar');
-const caixaResultado = document.querySelector('.caixa-resultado');
-const tituloResultado = document.querySelector('.titulo-resultado');
-const textoResultado = document.querySelector('.texto-resultado');
-const btnRecomecar = document.querySelector('.btn-recomecar');
-
-// Funções
-function mostrarPergunta(index) {
-    document.title = `Pergunta ${index + 1} - ${questionario.titulo}`;
-    caixaPerguntas.textContent = questionario.perguntas[index].pergunta;
-    caixaAlternativas.innerHTML = '';
-    
-    questionario.perguntas[index].alternativas.forEach((alternativa, i) => {
-        const botao = document.createElement('button');
-        botao.textContent = alternativa;
-        botao.addEventListener('click', () => selecionarResposta(i));
-        caixaAlternativas.appendChild(botao);
-    });
-    
-    caixaNavegacao.style.display = index > 0 ? 'block' : 'none';
-    caixaResultado.style.display = 'none';
-}
-
-function selecionarResposta(respostaIndex) {
-    respostas[perguntaAtual] = respostaIndex;
-    
-    if (perguntaAtual < questionario.perguntas.length - 1) {
-        perguntaAtual++;
-        mostrarPergunta(perguntaAtual);
-    } else {
-        mostrarResultado();
-    }
-}
+// ... (o resto do código permanece igual) ...
 
 function mostrarResultado() {
     document.title = `Resultado - ${questionario.titulo}`;
@@ -108,36 +68,22 @@ function mostrarResultado() {
     caixaAlternativas.style.display = 'none';
     caixaNavegacao.style.display = 'none';
     
-    let resultadoHTML = `<p><strong>${questionario.textoFinal}</strong></p><ul>`;
-    
-    questionario.perguntas.forEach((pergunta, index) => {
-        resultadoHTML += `<li>${pergunta.afirmacoes[respostas[index]]}</li>`;
+    // Coletar todas as afirmações
+    let afirmacoes = questionario.perguntas.map((pergunta, index) => {
+        return pergunta.afirmacoes[respostas[index]];
     });
+
+    // Juntar em um texto fluído
+    let textoFluido = afirmacoes.join(' ');
     
-    resultadoHTML += `</ul><p class="conclusao">Essa análise reflete suas opiniões sobre como lidar com os impactos da automação.</p>`;
+    let resultadoHTML = `
+        <p><strong>${questionario.textoFinal}</strong></p>
+        <p>${textoFluido}</p>
+        <p class="conclusao">Esta análise apresenta sua perspectiva integrada sobre os desafios e soluções relacionados à automação no mercado de trabalho contemporâneo.</p>
+    `;
     
     textoResultado.innerHTML = resultadoHTML;
     caixaResultado.style.display = 'block';
 }
 
-function voltarPergunta() {
-    if (perguntaAtual > 0) {
-        perguntaAtual--;
-        mostrarPergunta(perguntaAtual);
-    }
-}
-
-function recomecarQuestionario() {
-    perguntaAtual = 0;
-    respostas = [];
-    caixaPerguntas.style.display = 'block';
-    caixaAlternativas.style.display = 'block';
-    mostrarPergunta(0);
-}
-
-// Event Listeners
-btnVoltar.addEventListener('click', voltarPergunta);
-btnRecomecar.addEventListener('click', recomecarQuestionario);
-
-// Iniciar questionário
-mostrarPergunta(0);
+// ... (o resto do código permanece igual) ...
