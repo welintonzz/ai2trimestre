@@ -122,10 +122,6 @@ body {
     color: var(--cor-texto);
     font-size: 1rem;
     margin-bottom: 1.5rem;
-}
-
-.texto-resultado p {
-    margin-bottom: 1rem;
     line-height: 1.6;
 }
 
