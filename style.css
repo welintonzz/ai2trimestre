@@ -124,6 +124,11 @@ body {
     margin-bottom: 1.5rem;
 }
 
+.texto-resultado p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
 .btn-recomecar {
     background-color: var(--cor-destaque);
     color: white;
